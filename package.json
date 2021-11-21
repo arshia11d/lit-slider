@@ -1,0 +1,46 @@
+{
+	"name": "@a11d/lit-slider",
+	"version": "0.0.1",
+	"description": "Lit-based Web Components for swiper.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/arshia11d/lit-slider.git"
+	},
+	"keywords": [
+		"lit",
+		"swiper.js",
+		"swiper",
+		"slider",
+		"web-component"
+	],
+	"author": "arshia11d",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/arshia11d/lit-slider/issues"
+	},
+	"homepage": "https://github.com/arshia11d/lit-slider#readme",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist/index.js",
+		"dist/index.d.ts",
+		"dist/src"
+	],
+	"scripts": {
+		"start": "snowpack dev",
+		"prepare": "tsc"
+	},
+	"dependencies": {
+		"swiper": "7.*",
+		"lit": "*"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "*",
+		"@typescript-eslint/parser": "*",
+		"eslint": "*",
+		"eslint-plugin-import": "*",
+		"eslint-plugin-lit": "*",
+		"snowpack": "*"
+	}
+}
