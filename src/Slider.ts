@@ -52,7 +52,7 @@ export class Swiper extends LitElement {
 				reverseDirection: false,
 				stopOnLastSlide: false,
 				waitForTransition: true,
-			} : {},
+			} : false,
 			thumbs: this.hasThumb ? {
 				swiper: new SwiperLibrary.Swiper(this.divGallery, {
 					spaceBetween: 10,
