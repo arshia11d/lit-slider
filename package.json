@@ -32,8 +32,8 @@
 		"prepare": "tsc"
 	},
 	"dependencies": {
-		"swiper": "7.*",
-		"lit": "*"
+		"lit": "2.*",
+		"swiper": "8.*"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "*",
