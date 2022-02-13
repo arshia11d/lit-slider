@@ -5,6 +5,11 @@ import { customElement } from 'lit/decorators.js'
 export class Demo extends LitElement {
 	protected render() {
 		return html`
+			<style>
+				lit-slider {
+					--lit-slider-navigation-color: white;
+				}
+			</style>
 			<div>
 				<lit-slider style='height: 500px'>
 					<lit-slide style='background: red'>Slide 1</lit-slide>
