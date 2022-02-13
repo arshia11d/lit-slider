@@ -1,6 +1,6 @@
 {
 	"name": "@a11d/lit-slider",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Lit-based Web Components for swiper.js",
 	"repository": {
 		"type": "git",

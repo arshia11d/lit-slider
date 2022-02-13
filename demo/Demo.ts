@@ -13,7 +13,7 @@ export class Demo extends LitElement {
 			<button @click=${this.addSlide}>Add Slide</button>
 			<button @click=${this.removeSlide}>Remove Slide</button>
 
-			<lit-slider style='height: 500px' hasNavigation hasPagination clickablePagination hasThumbs>
+			<lit-slider style='height: 500px' hasNavigation hasPagination hasThumb>
 				${this.slidesBackgrounds.map((background, index) => html`
 					<lit-slide style=${`background: ${background}`}>
 						<h1>Slide ${index + 1}</h1>

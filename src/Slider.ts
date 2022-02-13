@@ -121,7 +121,7 @@ export class Slider extends LitElement {
 
 	//#region Pagination Properties
 	/** Enables pagination */
-	@property({ type: Boolean, reflect: true }) paginate = false
+	@property({ type: Boolean, reflect: true }) hasPagination = false
 	/** Type of pagination. Can be `'bullets'`, `'fraction'`, `'progressbar'` or `'custom'` */
 	@property({ type: String, reflect: true }) paginationType: PaginationOptions['type'] = 'bullets'
 	/** Good to enable if you use bullets pagination with a lot of slides. So it will keep only few bullets visible at the same time. */
@@ -138,9 +138,9 @@ export class Slider extends LitElement {
 	 */
 	@property({ type: Boolean, reflect: true }) oppositePaginationProgressBar: PaginationOptions['progressbarOpposite'] = false
 	/** Format fraction pagination current number. Function receives current number, and you need to return formatted value */
-	@property({ type: Function }) formatPaginationFractionCurrent?: PaginationOptions['formatFractionCurrent']
+	@property({ type: Object }) formatPaginationFractionCurrent?: PaginationOptions['formatFractionCurrent']
 	/** Format fraction pagination total number. Function receives total number, and you need to return formatted value */
-	@property({ type: Function }) formatPaginationFractionTotal?: PaginationOptions['formatFractionTotal']
+	@property({ type: Object }) formatPaginationFractionTotal?: PaginationOptions['formatFractionTotal']
 	//#endregion
 
 	@property({ type: Boolean, reflect: true }) hasNavigation = false
@@ -285,11 +285,11 @@ export class Slider extends LitElement {
 				height: 100%;
 			}
 
-			:host([hasThumbs]) .gallery-top {
+			:host([hasThumb]) .gallery-top {
 				height: calc(100% - var(--swiper-thumb-height, 100px) - var(--swiper-thumb-margin, 10px));
 			}
 
-			:host(:not([hasThumbs])) .gallery-thumbs {
+			:host(:not([hasThumb])) .gallery-thumbs {
 				display: none;
 			}
 
