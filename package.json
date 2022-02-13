@@ -33,6 +33,7 @@
 	},
 	"dependencies": {
 		"lit": "2.*",
+		"snowpack-plugin-css-result": "*",
 		"swiper": "8.*"
 	},
 	"devDependencies": {
