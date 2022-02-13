@@ -1,21 +1,33 @@
 import { LitElement, html } from 'lit'
-import { customElement } from 'lit/decorators.js'
+import { customElement, state } from 'lit/decorators.js'
 
 @customElement('lit-slider-demo')
 export class Demo extends LitElement {
+	@state() private slidesBackgrounds = [
+		'url("https://cdn.wallpaperhub.app/cloudcache/e/6/8/e/e/5/e68ee56be36553b1cd8f04a99ab5dca852ed2c17.jpg")',
+		'url("https://cdn.wallpaperhub.app/cloudcache/b/c/0/4/b/d/bc04bdbb38ca1cefd03ebd730ae37d994fbcb99b.jpg")',
+	]
+
 	protected render() {
 		return html`
-			<style>
-				lit-slider {
-					--lit-slider-navigation-color: white;
-				}
-			</style>
-			<div>
-				<lit-slider style='height: 500px'>
-					<lit-slide style='background: red'>Slide 1</lit-slide>
-					<lit-slide style='background: yellow'>Slide 2</lit-slide>
-				</lit-slider>
-			</div>
+			<button @click=${this.addSlide}>Add Slide</button>
+			<button @click=${this.removeSlide}>Remove Slide</button>
+
+			<lit-slider style='height: 500px' hasNavigation hasPagination clickablePagination hasThumbs>
+				${this.slidesBackgrounds.map((background, index) => html`
+					<lit-slide style=${`background: ${background}`}>
+						<h1>Slide ${index + 1}</h1>
+					</lit-slide>
+				`)}
+			</lit-slider>
 		`
+	}
+
+	private readonly addSlide = () => {
+		this.slidesBackgrounds = [...this.slidesBackgrounds, 'red']
+	}
+
+	private readonly removeSlide = () => {
+		this.slidesBackgrounds = this.slidesBackgrounds.slice(0, -1)
 	}
 }

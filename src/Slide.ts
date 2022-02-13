@@ -1,8 +1,26 @@
-import { css, html, LitElement } from 'lit'
-import { customElement } from 'lit/decorators.js'
+import { css, html, LitElement, PropertyValues } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
 
 @customElement('lit-slide')
 export class Slide extends LitElement {
+	@property({ type: Boolean, reflect: true }) active = false
+
+	clone() {
+		const slide = this.cloneNode(true) as Slide
+		slide.part.add('slide')
+		return slide
+	}
+
+	protected updated(changedProperties: PropertyValues<this>): void {
+		if (changedProperties.has('active')) {
+			if (this.active) {
+				this.part.add('active')
+			} else {
+				this.part.remove('active')
+			}
+		}
+	}
+
 	static get styles() {
 		return css`
 			:host {
