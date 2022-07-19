@@ -36,11 +36,7 @@
 		"swiper": "8.*"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "*",
-		"@typescript-eslint/parser": "*",
-		"eslint": "*",
-		"eslint-plugin-import": "*",
-		"eslint-plugin-lit": "*",
+		"@a11d/eslint-config": "0.0.1",
 		"snowpack": "*"
 	}
 }
