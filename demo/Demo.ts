@@ -1,14 +1,13 @@
-import { LitElement, html } from 'lit'
-import { customElement, state } from 'lit/decorators.js'
+import { Component, html, component, state } from '@a11d/lit'
 
-@customElement('lit-slider-demo')
-export class Demo extends LitElement {
+@component('lit-slider-demo')
+export class Demo extends Component {
 	@state() private slidesBackgrounds = [
 		'url("https://cdn.wallpaperhub.app/cloudcache/e/6/8/e/e/5/e68ee56be36553b1cd8f04a99ab5dca852ed2c17.jpg")',
 		'url("https://cdn.wallpaperhub.app/cloudcache/b/c/0/4/b/d/bc04bdbb38ca1cefd03ebd730ae37d994fbcb99b.jpg")',
 	]
 
-	protected render() {
+	protected override get template() {
 		return html`
 			<button @click=${this.addSlide}>Add Slide</button>
 			<button @click=${this.removeSlide}>Remove Slide</button>

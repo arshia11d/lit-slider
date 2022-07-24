@@ -1,11 +1,15 @@
 {
+	"exclude": [
+		"dist",
+		"demo"
+	],
 	"compilerOptions": {
 		"incremental": true,
 		"declaration": true,
 		"target": "ES2017",
 		"module": "ES2015",
 		"moduleResolution": "node",
-		"outDir": "./dist",
+		"outDir": "dist",
 		"rootDir": ".",
 		"strict": true,
 		"noUnusedLocals": true,
@@ -15,6 +19,7 @@
 		"allowSyntheticDefaultImports": true,
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
+		"noImplicitOverride": true,
 		"esModuleInterop": true,
 		"plugins": [
 			{

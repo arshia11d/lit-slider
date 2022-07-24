@@ -1,5 +1,4 @@
-import { css, html, LitElement } from 'lit'
-import { customElement, property, query, state } from 'lit/decorators.js'
+import { css, html, component, property, query, state, Component } from '@a11d/lit'
 import { swiperStyles } from './styles.min.css'
 import * as SwiperCore from 'swiper'
 import { Slide } from '.'
@@ -39,8 +38,8 @@ SwiperCore.Swiper.use([
  * @csspart previousButton - Previous button navigation element.
  * @csspart nextButton - Next button navigation element.
  */
-@customElement('lit-slider')
-export class Slider extends LitElement {
+@component('lit-slider')
+export class Slider extends Component {
 	// TODO Events
 
 	//#region Core Properties
@@ -165,11 +164,11 @@ export class Slider extends LitElement {
 			.map(s => s.clone())
 	}
 
-	protected firstUpdated() {
+	protected override initialized() {
 		this.initializeSlider()
 	}
 
-	protected updated() {
+	protected override updated() {
 		this.updateSlider()
 	}
 
@@ -255,7 +254,7 @@ export class Slider extends LitElement {
 		}
 	}
 
-	static get styles() {
+	static override get styles() {
 		return css`
 			${swiperStyles}
 
@@ -314,21 +313,21 @@ export class Slider extends LitElement {
 		`
 	}
 
-	protected render() {
+	protected override get template() {
 		return html`
 			<div class='swiper-container gallery-top'>
 				<slot style='display: none' @slotchange=${() => this.extractSlides()}></slot>
 				<div class='swiper-wrapper'>
-					${this.slides.map((slide, index) => this.renderSlide(slide, index))}
+					${this.slides.map((slide, index) => this.getSlideTemplate(slide, index))}
 				</div>
-				${this.renderPagination()}
-				${this.renderNavigation()}
+				${this.paginationTemplate}
+				${this.navigationTemplate}
 			</div>
-			${this.renderThumbsSlider()}
+			${this.thumbsSliderTemplate}
 		`
 	}
 
-	protected renderSlide(slide: Slide, index: number) {
+	protected getSlideTemplate(slide: Slide, index: number) {
 		slide.active = this.slider?.activeIndex === index ?? false
 		return html`
 			<div class='swiper-slide'>
@@ -337,20 +336,20 @@ export class Slider extends LitElement {
 		`
 	}
 
-	protected renderPagination() {
+	protected get paginationTemplate() {
 		return html`
 			<div part='pagination' class='swiper-pagination'></div>
 		`
 	}
 
-	protected renderNavigation() {
+	protected get navigationTemplate() {
 		return html`
 			<div part='previousButton' class='swiper-button-prev'></div>
 			<div part='nextButton' class='swiper-button-next'></div>
 		`
 	}
 
-	protected renderThumbsSlider() {
+	protected get thumbsSliderTemplate() {
 		return html`
 			<div class='swiper-container gallery-thumbs'>
 				<div class='swiper-wrapper'>

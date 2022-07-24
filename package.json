@@ -28,15 +28,19 @@
 		"dist/src"
 	],
 	"scripts": {
-		"start": "snowpack dev",
-		"prepare": "tsc"
+		"start": "webpack serve --mode=development",
+		"build": "tsc"
 	},
 	"dependencies": {
-		"lit": "2.*",
+		"@a11d/lit": "*",
 		"swiper": "8.*"
 	},
 	"devDependencies": {
 		"@a11d/eslint-config": "0.0.1",
-		"snowpack": "*"
+		"ts-loader": "*",
+		"html-webpack-plugin": "*",
+		"webpack": "*",
+		"webpack-cli": "*",
+		"webpack-dev-server": "*"
 	}
 }

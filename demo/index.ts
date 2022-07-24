@@ -1,2 +1,2 @@
-import '..'
+import '../src'
 export * from './Demo'
